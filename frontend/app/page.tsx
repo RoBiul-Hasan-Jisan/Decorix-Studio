@@ -273,32 +273,33 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-sand">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <p className="section-label mb-4">New Season Collection</p>
-            <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-charcoal">
-              Rooms that feel like <span className="italic text-clay">home</span>, not a showroom.
-            </h1>
-            <p className="mt-6 text-charcoal/70 max-w-md">
-              Hand-finished furniture, warm textiles, and considered lighting — sourced from makers who care about craft as much as you do.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Link href="/products" className="btn-primary">Shop the Collection</Link>
-              <Link href="/products?featured=true" className="btn-outline">Featured Pieces</Link>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative aspect-square rounded-3xl overflow-hidden shadow-soft"
-          >
-            <Image src="/test.jpeg" alt="Styled living room" fill className="object-cover" priority />
-          </motion.div>
-        </div>
-      </section>
+     
+  {/* Hero */}
+<section className="relative overflow-hidden bg-sand">
+  <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+    <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+      <p className="section-label mb-4">New Season Collection</p>
+      <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-charcoal">
+        Rooms that feel like <span className="italic text-clay">home</span>, not a showroom.
+      </h1>
+      <p className="mt-6 text-charcoal/70 max-w-md">
+        Hand-finished furniture, warm textiles, and considered lighting — sourced from makers who care about craft as much as you do.
+      </p>
+      <div className="mt-8 flex gap-4">
+        <Link href="/products" className="btn-primary">Shop the Collection</Link>
+        <Link href="/products?featured=true" className="btn-outline">Featured Pieces</Link>
+      </div>
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      className="relative aspect-square rounded-3xl overflow-hidden shadow-soft hidden md:block"
+    >
+      <Image src="/test.jpeg" alt="Styled living room" fill className="object-cover" priority />
+    </motion.div>
+  </div>
+</section>
 
       {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-16">

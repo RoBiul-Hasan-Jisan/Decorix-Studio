@@ -58,7 +58,7 @@ export default function CartPage() {
           </div>
           <div className="flex justify-between text-sm mb-4">
             <span className="text-stone">Estimated Delivery</span>
-            <span>$60.00</span>
+            <span>৳ 120</span>
           </div>
           <div className="border-t border-charcoal/10 pt-4 flex justify-between font-semibold mb-6">
             <span>Estimated Total</span>
