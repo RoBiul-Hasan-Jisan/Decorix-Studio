@@ -1,9 +1,16 @@
+require("dotenv").config();
+
+const express = require("express");
+const cors = require("cors");
+
+const app = express();   
+
 // ----------------------
 // CORS Configuration
 // ----------------------
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://decorix-studio.vercel.app",
+  "https://decorix-studio-8ukl.vercel.app/",
 ];
 
 if (process.env.CLIENT_URL) {
@@ -13,17 +20,12 @@ if (process.env.CLIENT_URL) {
 app.use(
   cors({
     origin(origin, callback) {
-      // Allow requests without an Origin (Postman, curl, server-to-server)
-      if (!origin) {
-        return callback(null, true);
-      }
+      if (!origin) return callback(null, true);
 
-      // Exact match
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      // Allow all Vercel preview deployments for this project
       if (/^https:\/\/decorix-studio.*\.vercel\.app$/.test(origin)) {
         return callback(null, true);
       }
@@ -33,10 +35,9 @@ app.use(
       return callback(new Error(`Origin ${origin} is not allowed by CORS`));
     },
     credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// Handle preflight requests
 app.options("*", cors());
+
+app.use(express.json());
