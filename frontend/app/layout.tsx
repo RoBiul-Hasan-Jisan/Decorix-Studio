@@ -17,14 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Decorix&Studio— Premium Home Decor",
+  title: "Decorix Studio — Premium Home Decor",
   description:
     "Shop premium home decoration pieces for every room — living room, bedroom, kitchen, and more.",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
