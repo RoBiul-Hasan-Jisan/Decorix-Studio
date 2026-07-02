@@ -42,6 +42,7 @@ app.use(
 const allowedOrigins = [
   "http://localhost:3000",
   "https://decorix-studio.vercel.app",
+  "https://decorix-studio-8ukl.vercel.app/",
 ];
 
 if (process.env.CLIENT_URL) {
