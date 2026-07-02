@@ -37,6 +37,8 @@ lerna-debug.log*
 *.sln
 *.sw?
 
+.next/
+
 # OS files
 .DS_Store
 Thumbs.db
