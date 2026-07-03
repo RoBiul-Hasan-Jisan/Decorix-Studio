@@ -16,14 +16,14 @@ const getAllBanners = async (req, res) => {
 };
 
 const createBanner = async (req, res) => {
-  const image = req.file ? `/uploads/${req.file.filename}` : req.body.image;
+  const image = req.file ? req.file.path : req.body.image;
   const banner = await Banner.create({ ...req.body, image });
   res.status(201).json(banner);
 };
 
 const updateBanner = async (req, res) => {
   const body = { ...req.body };
-  if (req.file) body.image = `/uploads/${req.file.filename}`;
+  if (req.file) body.image = req.file.path;
   const banner = await Banner.findByIdAndUpdate(req.params.id, body, { new: true });
   if (!banner) return res.status(404).json({ message: "Banner not found" });
   res.json(banner);

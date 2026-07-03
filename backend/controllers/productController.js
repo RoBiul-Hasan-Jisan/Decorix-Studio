@@ -92,7 +92,10 @@ const getProductById = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const images = (req.files || []).map((f) => `/uploads/${f.filename}`);
+  // multer-storage-cloudinary sets file.path to the uploaded image's full
+  // Cloudinary URL (and file.filename to its public_id) - we just store
+  // the URL directly, same as we'd store any other image URL.
+  const images = (req.files || []).map((f) => f.path);
   const body = { ...req.body };
   if (body.color && typeof body.color === "string") body.color = body.color.split(",").map((c) => c.trim());
 
@@ -109,7 +112,7 @@ const updateProduct = async (req, res) => {
   if (body.color && typeof body.color === "string") body.color = body.color.split(",").map((c) => c.trim());
 
   if (req.files && req.files.length > 0) {
-    const newImages = req.files.map((f) => `/uploads/${f.filename}`);
+    const newImages = req.files.map((f) => f.path);
     body.images = newImages;
     body.thumbnail = newImages[0];
   }

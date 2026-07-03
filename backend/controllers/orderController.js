@@ -83,7 +83,7 @@ const createOrder = async (req, res) => {
   await notifyAdmin(
     "new_order",
     "New order received",
-    `${req.user.name} placed order ${order.orderNumber} for ${orderItems.length} item(s), total $${totalAmount.toFixed(2)}.`,
+    `${req.user.name} placed order ${order.orderNumber} for ${orderItems.length} item(s), total ৳${Math.round(totalAmount)}.`,
     `/admin/orders/${order._id}`
   );
 
